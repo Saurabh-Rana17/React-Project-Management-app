@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, useState } from "react";
+import React, { useRef } from "react";
 
 const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
   let title = useRef("");
