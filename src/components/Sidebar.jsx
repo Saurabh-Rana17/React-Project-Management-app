@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 
-export default function Sidebar({ onOpenNewForm }) {
+export default function Sidebar({
+  onOpenNewForm,
+  projectArray = [],
+  setIsEmpty,
+}) {
+  const [selected, setSelected] = useState("");
+  function handleSelectedProject(title) {
+    setSelected(title);
+    setIsEmpty(false);
+  }
+  console.log(selected);
   return (
     <>
       <div className="w-64 flex-shrink">
@@ -22,11 +32,24 @@ export default function Sidebar({ onOpenNewForm }) {
           </button>
 
           <ul className="space-y-1.5">
-            <li>
+            {projectArray.map((item) => {
+              return (
+                <li key={item.title}>
+                  <button
+                    id={item.title}
+                    onClick={() => handleSelectedProject(item.title)}
+                    className="flex w-full items-center gap-x-3.5 py-2 px-2.5  text-gray-300 rounded-lg  font-medium text-base "
+                  >
+                    {item.title}
+                  </button>
+                </li>
+              );
+            })}
+            {/* <li>
               <button className="flex items-center gap-x-3.5 py-2 px-2.5  text-gray-300 rounded-lg  font-medium text-base ">
                 Learning React
               </button>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

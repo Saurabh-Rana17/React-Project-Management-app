@@ -16,7 +16,11 @@ function App() {
   return (
     <>
       <div className="flex flex-row">
-        <Sidebar onOpenNewForm={handleOpenNewProject} />
+        <Sidebar
+          onOpenNewForm={handleOpenNewProject}
+          projectArray={projectArray}
+          setIsEmpty={setIsEmpty}
+        />
         <Mainsection
           handleOpenNewProject={handleOpenNewProject}
           isEmpty={isEmpty}
