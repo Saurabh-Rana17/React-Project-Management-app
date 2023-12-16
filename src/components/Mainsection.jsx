@@ -1,6 +1,7 @@
 import React from "react";
 import Empty from "./Empty";
 import NewProjectForm from "./NewProjectForm";
+import SelectedProject from "./SelectedProject";
 
 const Mainsection = function ({
   handleOpenNewProject,
@@ -9,6 +10,7 @@ const Mainsection = function ({
   setOpenNewForm,
   setIsEmpty,
   projectArray,
+  selected,
 }) {
   return (
     <div className=" flex-auto mt-16  ">
@@ -20,6 +22,7 @@ const Mainsection = function ({
           projectArray={projectArray}
         />
       )}
+      {selected && <SelectedProject />}
     </div>
   );
 };

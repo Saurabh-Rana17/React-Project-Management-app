@@ -12,11 +12,13 @@ function App() {
   function handleSelectedProject(title) {
     setSelected(title);
     setIsEmpty(false);
+    setOpenNewForm(false);
   }
 
   function handleOpenNewProject() {
     setOpenNewForm(true);
     setIsEmpty(false);
+    setSelected("");
   }
 
   return (
@@ -27,6 +29,7 @@ function App() {
           projectArray={projectArray}
           setIsEmpty={setIsEmpty}
           handleSelectedProject={handleSelectedProject}
+          selected={selected}
         />
         <Mainsection
           handleOpenNewProject={handleOpenNewProject}
@@ -35,6 +38,7 @@ function App() {
           setOpenNewForm={setOpenNewForm}
           setIsEmpty={setIsEmpty}
           projectArray={projectArray}
+          selected={selected}
         />
       </div>
     </>
