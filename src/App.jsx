@@ -8,6 +8,12 @@ function App() {
   const [openNewForm, setOpenNewForm] = useState(false);
   const [isEmpty, setIsEmpty] = useState(true);
 
+  const [selected, setSelected] = useState("");
+  function handleSelectedProject(title) {
+    setSelected(title);
+    setIsEmpty(false);
+  }
+
   function handleOpenNewProject() {
     setOpenNewForm(true);
     setIsEmpty(false);
@@ -20,6 +26,7 @@ function App() {
           onOpenNewForm={handleOpenNewProject}
           projectArray={projectArray}
           setIsEmpty={setIsEmpty}
+          handleSelectedProject={handleSelectedProject}
         />
         <Mainsection
           handleOpenNewProject={handleOpenNewProject}

@@ -16,7 +16,6 @@ const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
     });
     setIsEmpty(true);
 
-    // console.log(projectArray);
     setOpenNewForm(false);
   }
 

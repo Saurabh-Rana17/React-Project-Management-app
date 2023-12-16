@@ -3,14 +3,13 @@ import React, { useState } from "react";
 export default function Sidebar({
   onOpenNewForm,
   projectArray = [],
-  setIsEmpty,
+  handleSelectedProject,
 }) {
-  const [selected, setSelected] = useState("");
-  function handleSelectedProject(title) {
-    setSelected(title);
-    setIsEmpty(false);
-  }
-  console.log(selected);
+  // const [selected, setSelected] = useState("");
+  // function handleSelectedProject(title) {
+  //   setSelected(title);
+  //   setIsEmpty(false);
+  // }
   return (
     <>
       <div className="w-64 flex-shrink">
@@ -25,7 +24,7 @@ export default function Sidebar({
             your projects
           </p>
           <button
-            className="bg-stone-700 w-36 h-10 text-gray-400 m-4 rounded-md hover:bg-stone-600 hover:text-gray-200"
+            className="bg-stone-700 w-36 h-10 text-gray-400 m-4 rounded-md hover:bg-stone-600 hover:text-gray-200 "
             onClick={onOpenNewForm}
           >
             + Add Project
@@ -38,18 +37,13 @@ export default function Sidebar({
                   <button
                     id={item.title}
                     onClick={() => handleSelectedProject(item.title)}
-                    className="flex w-full items-center gap-x-3.5 py-2 px-2.5  text-gray-300 rounded-lg  font-medium text-base "
+                    className={`flex w-full items-center gap-x-3.5 py-2 px-2.5  text-gray-400 rounded-lg hover:text-gray-200 font-medium text-base `}
                   >
                     {item.title}
                   </button>
                 </li>
               );
             })}
-            {/* <li>
-              <button className="flex items-center gap-x-3.5 py-2 px-2.5  text-gray-300 rounded-lg  font-medium text-base ">
-                Learning React
-              </button>
-            </li> */}
           </ul>
         </div>
       </div>
