@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function Sidebar() {
+export default function Sidebar({ onOpenNewForm }) {
   return (
     <>
       <div className="w-64 flex-shrink">
         <div
           id="docs-sidebar"
-          className="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 start-0 bottom-0 z-[60]  bg-black border-e border-gray-200 pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 rounded-tr-xl w-64 flex-auto mt-6  "
+          className="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 start-0 bottom-0 z-[60]  bg-black border-e border-gray-200 pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 rounded-tr-xl w-64 flex-auto mt-6   "
         >
           <div className="px-6">
             <p
@@ -16,7 +16,10 @@ export default function Sidebar() {
               your projects
             </p>
           </div>
-          <button className="bg-stone-700 w-36 h-10 text-gray-400 m-4 rounded-md hover:bg-stone-600 hover:text-gray-200">
+          <button
+            className="bg-stone-700 w-36 h-10 text-gray-400 m-4 rounded-md hover:bg-stone-600 hover:text-gray-200"
+            onClick={onOpenNewForm}
+          >
             + Add Project
           </button>
 
