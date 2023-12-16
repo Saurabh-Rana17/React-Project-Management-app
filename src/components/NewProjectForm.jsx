@@ -1,27 +1,24 @@
 import React, { forwardRef, useRef, useState } from "react";
 
-const NewProjectForm = forwardRef(function (
-  { setOpenNewForm, setIsEmpty, handleSave },
-  ref
-) {
-  // let title = useRef("");
-  // let description = useRef("");
-  // let dueDate = useRef("");
+const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
+  let title = useRef("");
+  let description = useRef("");
+  let dueDate = useRef("");
 
-  // function handleSave() {
-  //   title = title.current.value;
-  //   description = description.current.value;
-  //   dueDate = dueDate.current.value;
-  //   projectArray.push({
-  //     title,
-  //     description,
-  //     dueDate,
-  //   });
-  //   setIsEmpty(true);
+  function handleSave() {
+    title = title.current.value;
+    description = description.current.value;
+    dueDate = dueDate.current.value;
+    projectArray.push({
+      title,
+      description,
+      dueDate,
+    });
+    setIsEmpty(true);
 
-  //   console.log(projectArray);
-  //   setOpenNewForm(false);
-  // }
+    console.log(projectArray);
+    setOpenNewForm(false);
+  }
 
   return (
     <div className="pl-20 w-3/4">
@@ -36,7 +33,7 @@ const NewProjectForm = forwardRef(function (
       </div>
       <p className="uppercase mt-10 mb-1 font-semibold text-slate-600">Title</p>
       <input
-        ref={ref.title}
+        ref={title}
         className="bg-gray-300 text-slate-700 w-full h-10 rounded-md focus:outline-none focus:border-b-4 focus:text-slate-700 p-1 focus:border-slate-700"
         type="text"
         name=""
@@ -46,7 +43,7 @@ const NewProjectForm = forwardRef(function (
         Description
       </p>
       <textarea
-        ref={ref.description}
+        ref={description}
         className="bg-gray-300 text-slate-700 w-full rounded-md focus:border-b-4 focus:outline-none p-1 focus:border-slate-700"
         name=""
         id=""
@@ -54,7 +51,7 @@ const NewProjectForm = forwardRef(function (
       ></textarea>
       <p className="uppercase text-slate-600 font-semibold mt-4">Due Date</p>
       <input
-        ref={ref.dueDate}
+        ref={dueDate}
         className="bg-gray-300 mt-1 w-full h-10 rounded-md p-2 text-slate-700 
         focus:outline-none focus:border-b-4 focus:border-slate-700"
         type="date"
@@ -63,6 +60,6 @@ const NewProjectForm = forwardRef(function (
       />
     </div>
   );
-});
+};
 
 export default NewProjectForm;
