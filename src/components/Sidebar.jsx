@@ -16,7 +16,7 @@ export default function Sidebar() {
               your projects
             </p>
           </div>
-          <button className="bg-stone-700 w-40 h-10 text-gray-400 m-4 rounded-md hover:bg-stone-600 hover:text-gray-200">
+          <button className="bg-stone-700 w-36 h-10 text-gray-400 m-4 rounded-md hover:bg-stone-600 hover:text-gray-200">
             + Add Project
           </button>
 
