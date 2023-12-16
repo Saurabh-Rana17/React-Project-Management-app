@@ -22,7 +22,9 @@ const Mainsection = function ({
           projectArray={projectArray}
         />
       )}
-      {selected && <SelectedProject />}
+      {selected && (
+        <SelectedProject selected={selected} projectArray={projectArray} />
+      )}
     </div>
   );
 };

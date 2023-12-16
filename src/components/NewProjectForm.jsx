@@ -19,6 +19,11 @@ const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
     setOpenNewForm(false);
   }
 
+  function handleCancel() {
+    setOpenNewForm(false);
+    setIsEmpty(true);
+  }
+
   return (
     <div className="pl-20 w-3/4">
       <div className="h-8">
@@ -28,7 +33,12 @@ const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
         >
           Save
         </button>
-        <button className="float-right h-10 w-20 font-medium ">Cancel</button>
+        <button
+          className="float-right h-10 w-20 font-medium "
+          onClick={handleCancel}
+        >
+          Cancel
+        </button>
       </div>
       <p className="uppercase mt-10 mb-1 font-semibold text-slate-600">Title</p>
       <input
