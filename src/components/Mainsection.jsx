@@ -1,16 +1,22 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import Empty from "./Empty";
 import NewProjectForm from "./NewProjectForm";
 
-export default function Mainsection({
-  handleOpenNewProject,
-  isEmpty,
-  openNewForm,
-}) {
+const Mainsection = forwardRef(function (
+  { handleOpenNewProject, isEmpty, openNewForm, setOpenNewForm, setIsEmpty },
+  ref
+) {
   return (
     <div className=" flex-auto mt-16  ">
       {isEmpty && <Empty handleOpenNewProject={handleOpenNewProject} />}
-      {openNewForm && <NewProjectForm />}
+      {openNewForm && (
+        <NewProjectForm
+          setOpenNewForm={setOpenNewForm}
+          setIsEmpty={setIsEmpty}
+        />
+      )}
     </div>
   );
-}
+});
+
+export default Mainsection;
