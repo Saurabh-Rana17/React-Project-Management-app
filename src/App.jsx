@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Mainsection from "./components/Mainsection";
 import Sidebar from "./components/Sidebar";
 
@@ -10,6 +10,11 @@ function App() {
   let title = useRef("");
   let description = useRef("");
   let dueDate = useRef("");
+  let ref = {
+    title,
+    description,
+    dueDate,
+  };
 
   function handleSave() {
     title = title.current.value;
@@ -22,7 +27,7 @@ function App() {
     });
     setIsEmpty(true);
 
-    console.log(projectArray);
+    // console.log(projectArray);
     setOpenNewForm(false);
   }
 
@@ -41,9 +46,8 @@ function App() {
           openNewForm={openNewForm}
           setOpenNewForm={setOpenNewForm}
           setIsEmpty={setIsEmpty}
-          titleref={title}
-          descriptionref={description}
-          dueDateref={dueDate}
+          ref={ref}
+          handleSave={handleSave}
         />
       </div>
     </>

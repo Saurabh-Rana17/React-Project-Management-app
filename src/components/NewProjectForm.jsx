@@ -1,6 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { forwardRef, useRef, useState } from "react";
 
-export default function NewProjectForm({ setOpenNewForm, setIsEmpty }) {
+const NewProjectForm = forwardRef(function (
+  { setOpenNewForm, setIsEmpty, handleSave },
+  ref
+) {
   // let title = useRef("");
   // let description = useRef("");
   // let dueDate = useRef("");
@@ -33,7 +36,7 @@ export default function NewProjectForm({ setOpenNewForm, setIsEmpty }) {
       </div>
       <p className="uppercase mt-10 mb-1 font-semibold text-slate-600">Title</p>
       <input
-        ref={title}
+        ref={ref.title}
         className="bg-gray-300 text-slate-700 w-full h-10 rounded-md focus:outline-none focus:border-b-4 focus:text-slate-700 p-1 focus:border-slate-700"
         type="text"
         name=""
@@ -43,7 +46,7 @@ export default function NewProjectForm({ setOpenNewForm, setIsEmpty }) {
         Description
       </p>
       <textarea
-        ref={description}
+        ref={ref.description}
         className="bg-gray-300 text-slate-700 w-full rounded-md focus:border-b-4 focus:outline-none p-1 focus:border-slate-700"
         name=""
         id=""
@@ -51,7 +54,7 @@ export default function NewProjectForm({ setOpenNewForm, setIsEmpty }) {
       ></textarea>
       <p className="uppercase text-slate-600 font-semibold mt-4">Due Date</p>
       <input
-        ref={dueDate}
+        ref={ref.dueDate}
         className="bg-gray-300 mt-1 w-full h-10 rounded-md p-2 text-slate-700 
         focus:outline-none focus:border-b-4 focus:border-slate-700"
         type="date"
@@ -60,4 +63,6 @@ export default function NewProjectForm({ setOpenNewForm, setIsEmpty }) {
       />
     </div>
   );
-}
+});
+
+export default NewProjectForm;

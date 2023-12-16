@@ -3,7 +3,14 @@ import Empty from "./Empty";
 import NewProjectForm from "./NewProjectForm";
 
 const Mainsection = forwardRef(function (
-  { handleOpenNewProject, isEmpty, openNewForm, setOpenNewForm, setIsEmpty },
+  {
+    handleOpenNewProject,
+    isEmpty,
+    openNewForm,
+    setOpenNewForm,
+    setIsEmpty,
+    handleSave,
+  },
   ref
 ) {
   return (
@@ -13,6 +20,8 @@ const Mainsection = forwardRef(function (
         <NewProjectForm
           setOpenNewForm={setOpenNewForm}
           setIsEmpty={setIsEmpty}
+          handleSave={handleSave}
+          ref={ref}
         />
       )}
     </div>
