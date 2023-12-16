@@ -23,7 +23,11 @@ const Mainsection = function ({
         />
       )}
       {selected && (
-        <SelectedProject selected={selected} projectArray={projectArray} />
+        <SelectedProject
+          setIsEmpty={setIsEmpty}
+          selected={selected}
+          projectArray={projectArray}
+        />
       )}
     </div>
   );

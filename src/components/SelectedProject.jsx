@@ -1,7 +1,24 @@
 import React from "react";
 import moment from "moment";
+import ToDo from "./ToDo";
 
-export default function SelectedProject({ selected, projectArray = [] }) {
+export default function SelectedProject({
+  selected,
+  projectArray = [],
+  setIsEmpty,
+}) {
+  function handleDelete() {
+    let index = 0;
+    for (let i = 0; i < projectArray.length; i++) {
+      if (projectArray[i].title == selected) {
+        index = i;
+        break;
+      }
+    }
+    let spliced = projectArray.splice(index, 1);
+    console.log(projectArray);
+    setIsEmpty(true);
+  }
   return (
     <div>
       {projectArray.map((item) => {
@@ -10,7 +27,10 @@ export default function SelectedProject({ selected, projectArray = [] }) {
 
           return (
             <div key={item.title} className="pl-20 w-3/4 ">
-              <button className="float-right bg-red-600 h-9 p-2 rounded-xl text-white">
+              <button
+                onClick={handleDelete}
+                className="float-right bg-red-600 h-9 p-2 rounded-xl text-white"
+              >
                 Delete
               </button>
               <h1 className="text-3xl font-bold mb-4 text-gray-800 ">
@@ -23,10 +43,9 @@ export default function SelectedProject({ selected, projectArray = [] }) {
               <hr className="h-0.5 bg-gray-400" />
             </div>
           );
-        } else {
-          return "";
         }
       })}
+      <ToDo />
     </div>
   );
 }

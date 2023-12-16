@@ -40,9 +40,12 @@ const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
           Cancel
         </button>
       </div>
-      <p className="uppercase mt-10 mb-1 font-semibold text-slate-600">Title</p>
+      <p className=" uppercase mt-10 mb-1 font-semibold text-slate-600">
+        Title
+      </p>
       <input
         ref={title}
+        required
         className="bg-gray-300 text-slate-700 w-full h-10 rounded-md focus:outline-none focus:border-b-4 focus:text-slate-700 p-1 focus:border-slate-700"
         type="text"
         name=""
@@ -52,6 +55,7 @@ const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
         Description
       </p>
       <textarea
+        required
         ref={description}
         className="bg-gray-300 text-slate-700 w-full rounded-md focus:border-b-4 focus:outline-none p-1 focus:border-slate-700"
         name=""
@@ -60,6 +64,7 @@ const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
       ></textarea>
       <p className="uppercase text-slate-600 font-semibold mt-4">Due Date</p>
       <input
+        required
         ref={dueDate}
         className="bg-gray-300 mt-1 w-full h-10 rounded-md p-2 text-slate-700 
         focus:outline-none focus:border-b-4 focus:border-slate-700"
