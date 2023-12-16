@@ -4,8 +4,10 @@ import Sidebar from "./components/Sidebar";
 function App() {
   return (
     <>
-      <Sidebar />
-      <Mainsection />
+      <div className="flex flex-row">
+        <Sidebar />
+        <Mainsection />
+      </div>
     </>
   );
 }
