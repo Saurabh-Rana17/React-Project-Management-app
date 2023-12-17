@@ -27,6 +27,7 @@ const Mainsection = function ({
           setIsEmpty={setIsEmpty}
           selected={selected}
           projectArray={projectArray}
+          isEmpty={isEmpty}
         />
       )}
     </div>

@@ -6,6 +6,7 @@ export default function SelectedProject({
   selected,
   projectArray = [],
   setIsEmpty,
+  isEmpty,
 }) {
   function handleDelete() {
     let index = 0;
@@ -45,7 +46,7 @@ export default function SelectedProject({
           );
         }
       })}
-      <ToDo />
+      {!isEmpty && <ToDo />}
     </div>
   );
 }
