@@ -30,12 +30,12 @@ const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
       <div className="h-8">
         <button
           onClick={handleSave}
-          className="float-right bg-black text-white h-10 w-20 rounded-md ml-4"
+          className="float-right bg-black text-white h-10 w-20 rounded-md ml-4 hover:bg-slate-500"
         >
           Save
         </button>
         <button
-          className="float-right h-10 w-20 font-medium "
+          className="float-right h-10 w-20 font-medium hover:text-red-500"
           onClick={handleCancel}
         >
           Cancel

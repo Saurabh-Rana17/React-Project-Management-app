@@ -12,7 +12,7 @@ export default function Empty({ handleOpenNewProject }) {
         Select a Project or get started with a new one
       </h2>
       <button
-        className="text-gray-400 h-12 w-48 rounded-md mt-2  bg-amber-950 hover:bg-amber-900"
+        className="text-gray-400 h-12 w-48 rounded-md mt-2  bg-amber-950 hover:bg-amber-900 hover:text-white"
         onClick={handleOpenNewProject}
       >
         Create a new Project
