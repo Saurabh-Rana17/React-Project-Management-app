@@ -13,6 +13,7 @@ const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
       title,
       description,
       dueDate,
+      taskList: [],
     });
     setIsEmpty(true);
 

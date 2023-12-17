@@ -1,18 +1,23 @@
 import React, { useRef, useState } from "react";
 
-export default function ToDo() {
-  const [list, setList] = useState(["Lorem ipsum", "aliquam omnis"]);
+export default function ToDo({ projectArray = [], selected }) {
+  const [updated, setUpdated] = useState(false);
+  if (updated) {
+    setUpdated(false);
+  }
   let task = useRef("");
   let newTask;
   function handleAddTask() {
     newTask = task.current.value;
-    setList((prev) => {
-      let tempList = [...prev, newTask];
-      return tempList;
-    });
+    for (let i = 0; i < projectArray.length; i++) {
+      if (projectArray[i].title == selected) {
+        projectArray[i].taskList.push(newTask);
+        setUpdated(true);
+        break;
+      }
+    }
     task.current.value = "";
   }
-  console.log(list);
 
   return (
     <div className="pl-20 w-3/4">
@@ -28,18 +33,26 @@ export default function ToDo() {
       >
         Add Task
       </button>
-      <ul>
-        {list.map((item) => {
+
+      {projectArray.map((item) => {
+        if (item.title == selected) {
           return (
-            <li
-              className="bg-slate-400 h-10 p-2 m-2 rounded-lg text-slate-100"
-              key={item}
-            >
-              {item}
-            </li>
+            <ul key={Math.random()}>
+              {item.taskList.map((task) => {
+                return <li key={task}>{task} </li>;
+              })}
+            </ul>
           );
-        })}
-      </ul>
+          // <li key={item.title}>{item.taskList[0]} </li>;
+        }
+      })}
     </div>
   );
 }
+
+// <li
+//   className="bg-slate-400 h-10 p-2 m-2 rounded-lg text-slate-100"
+//   key={item}
+// >
+//   {item}
+// </li>

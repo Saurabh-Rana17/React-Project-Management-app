@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import moment from "moment";
+
 import ToDo from "./ToDo";
 
 export default function SelectedProject({
@@ -20,6 +21,7 @@ export default function SelectedProject({
     console.log(projectArray);
     setIsEmpty(true);
   }
+
   return (
     <div>
       {projectArray.map((item) => {
@@ -46,7 +48,7 @@ export default function SelectedProject({
           );
         }
       })}
-      {!isEmpty && <ToDo />}
+      {!isEmpty && <ToDo projectArray={projectArray} selected={selected} />}
     </div>
   );
 }
