@@ -18,7 +18,6 @@ export default function SelectedProject({
       }
     }
     let spliced = projectArray.splice(index, 1);
-    console.log(projectArray);
     setIsEmpty(true);
   }
 

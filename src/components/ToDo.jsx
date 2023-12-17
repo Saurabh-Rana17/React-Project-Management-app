@@ -18,6 +18,22 @@ export default function ToDo({ projectArray = [], selected }) {
     }
     task.current.value = "";
   }
+  function handleClear(task) {
+    //
+    let index = -1;
+    for (let i = 0; i < projectArray.length; i++) {
+      if (projectArray[i].title == selected) {
+        for (let j = 0; j < projectArray[i].taskList.length; j++) {
+          index += 1;
+          if (projectArray[i].taskList[j] == task) {
+            let spliced = projectArray[i].taskList.splice(j, 1);
+            setUpdated(true);
+            break;
+          }
+        }
+      }
+    }
+  }
 
   return (
     <div className="pl-20 w-3/4">
@@ -39,7 +55,20 @@ export default function ToDo({ projectArray = [], selected }) {
           return (
             <ul key={Math.random()}>
               {item.taskList.map((task) => {
-                return <li key={task}>{task} </li>;
+                return (
+                  <li
+                    className="bg-slate-300 text-black h-10 p-2  m-0 rounded-sm text-lg "
+                    key={task}
+                  >
+                    {task}
+                    <button
+                      onClick={() => handleClear(task)}
+                      className="float-right mr-4 hover:text-red-500"
+                    >
+                      Clear
+                    </button>
+                  </li>
+                );
               })}
             </ul>
           );
