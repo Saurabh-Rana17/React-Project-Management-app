@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 
 const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
-  let title = useRef("");
-  let description = useRef("");
-  let dueDate = useRef("");
+  let title = useRef();
+  let description = useRef();
+  let dueDate = useRef();
 
   function handleSave() {
-    title = title.current.value;
-    description = description.current.value;
-    dueDate = dueDate.current.value;
+    title = title.current.value || "empty";
+    description = description.current.value || "empty";
+    dueDate = dueDate.current.value || "";
     projectArray.push({
       title,
       description,
@@ -18,6 +18,7 @@ const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
     setIsEmpty(true);
 
     setOpenNewForm(false);
+    console.log(projectArray);
   }
 
   function handleCancel() {
@@ -30,7 +31,7 @@ const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
       <div className="h-8">
         <button
           onClick={handleSave}
-          className="float-right bg-black text-white h-10 w-20 rounded-md ml-4 hover:bg-slate-500"
+          className="float-right bg-black text-white h-10 w-20 rounded-md ml-4 hover:bg-green-600 hover:text-white hover:outline-green-800"
         >
           Save
         </button>
@@ -47,7 +48,7 @@ const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
       <input
         ref={title}
         required
-        className="bg-gray-300 text-slate-700 w-full h-10 rounded-md focus:outline-none focus:border-b-4 focus:text-slate-700 p-1 focus:border-slate-700"
+        className="bg-gray-300 text-slate-700 w-full h-10 rounded-md focus:outline-none focus:border-b-4 focus:text-slate-700 p-1 focus:border-slate-700 border-b-slate-400 border-b-4"
         type="text"
         name=""
         id=""
@@ -58,7 +59,7 @@ const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
       <textarea
         required
         ref={description}
-        className="bg-gray-300 text-slate-700 w-full rounded-md focus:border-b-4 focus:outline-none p-1 focus:border-slate-700"
+        className="bg-gray-300 text-slate-700 w-full rounded-md focus:border-b-4 focus:outline-none p-1 focus:border-slate-700 border-b-slate-400 border-b-4"
         name=""
         id=""
         rows="4"
@@ -68,7 +69,7 @@ const NewProjectForm = function ({ setOpenNewForm, setIsEmpty, projectArray }) {
         required
         ref={dueDate}
         className="bg-gray-300 mt-1 w-full h-10 rounded-md p-2 text-slate-700 
-        focus:outline-none focus:border-b-4 focus:border-slate-700"
+        focus:outline-none focus:border-b-4 focus:border-slate-700 border-b-slate-400 border-b-4"
         type="date"
         name=""
         id=""
