@@ -61,7 +61,7 @@ export default function ToDo({ projectArray, selected }) {
                   return (
                     <li
                       className="bg-slate-300 text-black h-10 p-2  m-0 rounded-sm text-lg "
-                      key={task}
+                      key={Math.random()}
                     >
                       {task}
                       <button
