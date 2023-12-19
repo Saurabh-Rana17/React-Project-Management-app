@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-export default function ToDo({ projectArray = [], selected }) {
+export default function ToDo({ projectArray, selected }) {
   const [updated, setUpdated] = useState(false);
   if (updated) {
     setUpdated(false);
@@ -49,39 +49,35 @@ export default function ToDo({ projectArray = [], selected }) {
       >
         Add Task
       </button>
-
       {projectArray.map((item) => {
         if (item.title == selected) {
           return (
-            <ul key={Math.random()}>
-              {item.taskList.map((task) => {
-                return (
-                  <li
-                    className="bg-slate-300 text-black h-10 p-2  m-0 rounded-sm text-lg "
-                    key={task}
-                  >
-                    {task}
-                    <button
-                      onClick={() => handleClear(task)}
-                      className="float-right mr-4 hover:text-red-500"
+            <>
+              {item.taskList.length == 0 ? (
+                <p className="text-slate-500">No task added yet</p>
+              ) : null}
+              <ul key={Math.random()}>
+                {item.taskList.map((task) => {
+                  return (
+                    <li
+                      className="bg-slate-300 text-black h-10 p-2  m-0 rounded-sm text-lg "
+                      key={task}
                     >
-                      Clear
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
+                      {task}
+                      <button
+                        onClick={() => handleClear(task)}
+                        className="float-right mr-4 hover:text-red-500"
+                      >
+                        Clear
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
           );
-          // <li key={item.title}>{item.taskList[0]} </li>;
         }
       })}
     </div>
   );
 }
-
-// <li
-//   className="bg-slate-400 h-10 p-2 m-2 rounded-lg text-slate-100"
-//   key={item}
-// >
-//   {item}
-// </li>
